@@ -15,6 +15,7 @@ def add_film(request):
         form = FilmForm()
     return render(request, 'films/add_film.html', {'form': form})
 
+
 def film_list(request):
     films = Film.objects.all()
     return render(request, 'films/film_list.html', {'films': films})
