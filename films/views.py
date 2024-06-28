@@ -11,6 +11,9 @@ def add_film(request):
         if form.is_valid():
             form.save()
             return redirect('film_list')
+        else:
+            # Если форма не валидна, ошибки будут автоматически переданы в шаблон
+            return render(request, 'films/add_film.html', {'form': form})
     else:
         form = FilmForm()
     return render(request, 'films/add_film.html', {'form': form})
